@@ -4,71 +4,133 @@ A modular, object-oriented data science project analyzing solar potential across
 
 ## Project Structure
 
-solar-challenge-week1/
-├── clean_data/ # Cleaned CSVs for each country
-├── data/ # Raw CSVs from solar dataset
-├── notebooks/ # Jupyter Notebooks (EDA + Comparison)
-├── scripts/ # Modularized Python scripts
-├── src/ # (Optional future extension)
-├── tests/ # Unit test directory
-├── .github/workflows/ # GitHub Actions CI pipeline
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
-└── .gitignore # Git ignored files
+```
+solar-challenge-week0/
+├── clean_data/          # Cleaned CSVs for each country (committed to repo)
+├── data/                # Raw CSVs from solar dataset (gitignored)
+├── notebooks/           # Jupyter Notebooks (EDA + Comparison)
+│   ├── benin_eda.ipynb
+│   ├── sierraleone_eda.ipynb
+│   ├── togo_eda.ipynb
+│   └── compare_countries.ipynb
+├── scripts/             # Modularized Python scripts
+├── src/                 # Source code (Streamlit app)
+├── tests/               # Unit test directory
+├── .github/
+│   └── workflows/
+│       └── ci.yml      # GitHub Actions CI pipeline
+├── requirements.txt     # Python dependencies
+├── README.md            # Project documentation
+└── .gitignore           # Git ignored files
+```
 
 ## Getting Started
 
+### Prerequisites
+
+- Python 3.8 or higher
+- Git
+- pip (Python package manager)
+
 ### 1. Clone the Repository
 
+```bash
+git clone git@github.com:johannesgirmaw/solar-challenge-week0.git
+cd solar-challenge-week0
 ```
-git clone git@github.com:johannesgirmaw/solar-challenge-week1.git
-cd solar-challenge-week1
 
+Or if using HTTPS:
+```bash
+git clone https://github.com/johannesgirmaw/solar-challenge-week0.git
+cd solar-challenge-week0
 ```
 
 ### 2. Create & Activate a Virtual Environment
 
+**On Linux/macOS:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
 ```
+
+**On Windows:**
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
+**On Windows (PowerShell):**
+```bash
+python -m venv venv
+venv\Scripts\Activate.ps1
 ```
 
 ### 3. Install Dependencies
 
+```bash
+pip install --upgrade pip
 pip install -r requirements.txt
+```
 
----
+This will install all required packages:
+- pandas, numpy (data manipulation)
+- matplotlib, seaborn, plotly (visualization)
+- scipy (statistical analysis)
+- jupyter, ipykernel (notebook support)
+- streamlit (dashboard)
+- windrose (wind visualization)
 
-### 4. Run the Notebooks
+### 4. Verify Installation
 
-> Explore Jupyter notebooks inside the `notebooks/` folder.
->
-> jupyter notebook
+```bash
+python --version  # Should show Python 3.8+
+pip list  # Verify all packages are installed
+```
 
-Then navigate to:
+### 5. Run the Notebooks
 
-- `notebooks/benin_eda.ipynb`
-- `notebooks/sierraleone_eda.ipynb`
-- `notebooks/togo.ipynb`
-- `notebooks/compare_countries.ipynb`
+**Start Jupyter Notebook:**
+```bash
+jupyter notebook
+```
+
+**Or use Jupyter Lab:**
+```bash
+jupyter lab
+```
+
+Then navigate to and run the notebooks in order:
+
+1. `notebooks/benin_eda.ipynb` - EDA for Benin data
+2. `notebooks/sierraleone_eda.ipynb` - EDA for Sierra Leone data
+3. `notebooks/togo_eda.ipynb` - EDA for Togo data
+4. `notebooks/compare_countries.ipynb` - Cross-country comparison
+
+**Note:** Make sure to run all cells in each notebook to generate the cleaned data files and visualizations.
+
+### 6. Access Cleaned Data
+
+After running the EDA notebooks, cleaned data files will be available in:
+- `clean_data/benin_clean.csv`
+- `clean_data/sierraleone_clean.csv`
+- `clean_data/togo_clean.csv`
 
 ---
 
 ## Core Functionality
 
-### ✅ Task 1: Git & Environment Setup
+### Task 1: Git & Environment Setup
 
 - `.gitignore`, `requirements.txt`, GitHub Actions CI.
 - Virtual environment setup and tested on GitHub workflows.
 
-### ✅ Task 2: Data Cleaning & EDA
+### Task 2: Data Cleaning & EDA
 
 - Cleaned solar radiation datasets.
 - Outlier detection (Z-score), time-series analysis.
 - Correlation heatmaps, bubble charts, and wind/temp distribution.
 
-### ✅ Task 3: Cross-Country Comparison
+### Task 3: Cross-Country Comparison
 
 - Combined datasets for Benin, Sierra Leone, and Togo.
 - Boxplots for GHI, DNI, DHI across countries.
@@ -77,7 +139,7 @@ Then navigate to:
 - Visual bar chart of average GHI.
 - Markdown insights for reporting.
 
-### ✅ Task 4: Dashboard using Streamlit
+### Task 4: Dashboard using Streamlit
 
 - Widgets to select countries.
 
